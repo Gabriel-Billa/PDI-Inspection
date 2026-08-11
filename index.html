@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <img src="img/logo.png" alt="Phinia logo">
+        </div>
+        <div class="title">
+            <h1>PDI-Inspection</h1>
+        </div>
+        <div class="top-actions">
+            <button type="button" class="icon-button">Params</button>
+            <button type="button" class="icon-button">Login</button>
+        </div>
+    </header>
+
+    <main class="app-shell">
+        <section class="operation-panel">
+            <div class="panel-header">
+                <span>Operação</span>
+            </div>
+            <div class="operation-fields">
+                <div class="field-group">
+                    <label for="serial">Serial</label>
+                    <input id="serial" type="text" placeholder="Digite o serial">
+                </div>
+                <div class="field-group finalize-group">
+                    <label>&nbsp;</label>
+                    <button type="button" class="btn-finalize">Finalizar</button>
+                </div>
+                <div class="field-group field-group--wide">
+                    <label for="modelo">Modelo</label>
+                    <input id="modelo" type="text" placeholder="Digite o modelo">
+                </div>
+                <div class="field-group field-group--full">
+                    <label for="id">ID</label>
+                    <input id="id" type="text" placeholder="Digite o ID">
+                </div>
+                <div class="field-group field-group--full">
+                    <label for="descricao">Descrição</label>
+                    <input id="descricao" type="text" placeholder="Digite a descrição">
+                </div>
+            </div>
+        </section>
+
+        <section class="content-grid">
+            <div class="preview-panel">
+                <div class="preview-header">Imagem da bomba</div>
+                <div class="preview-box">
+                    <span>Aparecerá aqui</span>
+                </div>
+            </div>
+
+            <div class="step-panel">
+                <div class="panel-header panel-header--dark">
+                    <span>Passo a passo</span>
+                </div>
+                <div class="step-table-wrapper">
+                    <table class="step-table">
+                        <thead>
+                            <tr>
+                                <th>Passo</th>
+                                <th>Descrição</th>
+                                <th>Especificação</th>
+                                <th>Método</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>10</td>
+                                <td>Verificar tampas e encaixes</td>
+                                <td>OK/NOK</td>
+                                <td>Inspeção visual</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td>Montagem de válvula</td>
+                                <td>Torque 20 Nm</td>
+                                <td>Chave dinamométrica</td>
+                            </tr>
+                            <tr>
+                                <td>30</td>
+                                <td>Inspeção de anéis</td>
+                                <td>Sem folga</td>
+                                <td>Verificação manual</td>
+                            </tr>
+                            <tr>
+                                <td>40</td>
+                                <td>Instalar bomba principal</td>
+                                <td>Alinhamento correto</td>
+                                <td>Montagem guiada</td>
+                            </tr>
+                            <tr>
+                                <td>50</td>
+                                <td>Teste final</td>
+                                <td>Sem vazamento</td>
+                                <td>Teste pressurizado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <div class="footer-left">
+            <strong>Usuário:</strong> Nome do operador
+        </div>
+        <div class="footer-right">
+            <span>1º Turno 10 OK 10 NOK</span>
+            <span>2º Turno 10 OK 10 NOK</span>
+            <span>3º Turno 10 OK 10 NOK</span>
+        </div>
+    </footer>
+</body>
+</html>
