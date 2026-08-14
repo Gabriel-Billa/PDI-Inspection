@@ -397,4 +397,28 @@ body {
     font-weight: 700;
 }
 
+#foto-bomba {
+    max-width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+}
+#mensagem-imagem {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+}
+/* Estados da área de visualização */
 
+.status-normal {
+    background: #f3f4f6;
+}
+
+.status-erro {
+    background: #dc3545;
+    color: #000;
+}
+
+.status-aviso {
+    background: #ffc107;
+    color: #000;
+}
