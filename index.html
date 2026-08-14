@@ -6,6 +6,7 @@
     <title>Inspection</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header class="topbar">
         <div class="brand">
@@ -32,15 +33,18 @@
                     </div>
                     <div class="field-group finalize-group">
                         <label>&nbsp;</label>
-                        <button type="button" class="btn-finalize">Finalizar [F2]</button>
+                        <button type="button" id="btn-finalizar" class="btn-finalize">
+                            Finalizar [F2]
+                        </button>   
+   
                     </div>
                     <div class="field-group field-group--wide">
                         <label for="modelo">Modelo</label>
                         <input id="modelo" type="text" placeholder="Digite o modelo">
                     </div>
                     <div class="field-group field-group--half">
-                        <label for="id">ID</label>
-                        <input id="id" type="text" placeholder="Digite o ID">
+                        <label for="bomba-id">ID</label>
+                        <input id="bomba-id" type="text" placeholder="Digite o ID">
                     </div>
                     <div class="field-group field-group--half field-group--right">
                         <label for="descricao">Descrição</label>
@@ -101,7 +105,7 @@
 
         <section class="preview-panel preview-panel-right">
             <div class="preview-header">Imagem da bomba</div>
-            <div class="preview-box large-preview">
+            <div id="imagem-bomba" class="preview-box large-preview">
                 <span>Aparecerá aqui</span>
             </div>
         </section>
@@ -117,5 +121,6 @@
             <span>3º Turno 0 OK 0 NOK</span>
         </div>
     </footer>
+<script src="app.js"></script>
 </body>
 </html>
