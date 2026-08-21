@@ -422,3 +422,73 @@ body {
     background: #ffc107;
     color: #000;
 }
+.passo-ativo {
+    background: #0175fa96 !important;
+    color: white;
+}
+#acoes-finalizacao {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+
+    grid-template-columns: 180px 180px;
+    grid-template-rows: 180px 70px;
+
+    gap: 20px;
+
+    justify-content: center;
+    align-content: center;
+}
+
+#acoes-finalizacao[hidden] {
+    display: none;
+}
+
+
+
+
+/* Estilo geral dos botões */
+
+#acoes-finalizacao button {
+    border: 2px solid #222;
+    border-radius: 8px;
+
+    font-size: 1.4rem;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* APROVAR */
+
+#btn-aprovar {
+    width: 180px;
+    height: 180px;
+
+    background-color: green;
+    color: black;
+}
+
+
+/* REPROVAR */
+
+#btn-reprovar {
+    width: 180px;
+    height: 180px;
+
+    background-color: red;
+    color: black;
+}
+
+
+/* CANCELAR */
+
+#btn-cancelar {
+    width: 380px;
+    height: 70px;
+
+    background-color: #ffd400;
+    color: black;
+}

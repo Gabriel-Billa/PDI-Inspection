@@ -1,12 +1,4 @@
-const bombas = [
-    {
-        serial: "71005423152",
-        id: "852a22s1d54841d1a51245ad152",
-        modelo: "V3340F362G-2",
-        descricao: "Bomba Perkins",
-        imagem: "img/bombas/bomba-perkins.png"
-    }
-];
+import { bombas } from "./bombas.js";
 
 const campoSerial = document.getElementById("serial");
 const botaoFinalizar = document.getElementById("btn-finalizar");
@@ -17,7 +9,11 @@ const campoDescricao = document.getElementById("descricao");
 const fotoBomba = document.getElementById("foto-bomba");
 const mensagemImagem = document.getElementById("mensagem-imagem");
 const tabelaPassos = document.getElementById("tabela-passos");
-
+const acoesFinalizacao = document.getElementById("acoes-finalizacao");
+const btnAprovar = document.getElementById("btn-aprovar");
+const btnReprovar = document.getElementById("btn-reprovar");
+const btnCancelar = document.getElementById("btn-cancelar");
+const inspecoes = [];
 
 botaoFinalizar.addEventListener("click", function () {
 
@@ -102,14 +98,22 @@ const passos = [
 ];
 let passoAtual = 0;
 let temporizadorPassos;
+
 function mostrarPasso(indice) {
 
     const passo = passos[indice];
 
     fotoBomba.src = passo.imagem;
     fotoBomba.hidden = false;
-
     mensagemImagem.hidden = true;
+    acoesFinalizacao.hidden = true;
+    const linhas = tabelaPassos.querySelectorAll("tr");
+
+    linhas.forEach(function (linha) {
+        linha.classList.remove("passo-ativo");
+    });
+
+    linhas[indice].classList.add("passo-ativo");
 }
 function iniciarPassosAutomaticos() {
 
@@ -128,15 +132,14 @@ function iniciarPassosAutomaticos() {
         if (passoAtual < passos.length) {
 
             mostrarPasso(passoAtual);
-
         } else {
 
             clearInterval(temporizadorPassos);
 
-            console.log("Todos os passos foram concluídos.");
+            mostrarFinalizacao();
         }
 
-    }, 10000);
+    },3000);
 }
 function carregarTabelaPassos() {
 
@@ -164,6 +167,85 @@ iniciarPassosAutomaticos();
 
     areaImagem.classList.remove("status-erro", "status-aviso");
     areaImagem.classList.add("status-normal");
+}
+function mostrarFinalizacao() {
+
+    fotoBomba.hidden = true;
+    mensagemImagem.hidden = true;
+
+    acoesFinalizacao.hidden = false;
+}
+
+function aprovarInspecao() {
+
+    const serial = campoSerial.value.trim();
+
+    const novaInspecao = {
+        serial: serial,
+        modelo: campoModelo.value,
+        id: campoId.value,
+        descricao: campoDescricao.value,
+        resultado: "Aprovada",
+        dataHora: new Date()
+    };
+
+    inspecoes.push(novaInspecao);
+
+    console.log("Inspeção aprovada:");
+    console.log(novaInspecao);
+
+    limparTela();
+}
+btnAprovar.addEventListener("click", function () {
+    aprovarInspecao();
+});
+
+function limparTela() {
+
+    clearInterval(temporizadorPassos);
+
+    campoSerial.value = "";
+    campoModelo.value = "";
+    campoId.value = "";
+    campoDescricao.value = "";
+
+    fotoBomba.src = "";
+    fotoBomba.hidden = true;
+
+    acoesFinalizacao.hidden = true;
+
+    mensagemImagem.hidden = false;
+    mensagemImagem.textContent = "Aguardando leitura do serial...";
+
+    areaImagem.classList.remove(
+        "status-erro",
+        "status-aviso"
+    );
+
+    areaImagem.classList.add("status-normal");
+
+    passoAtual = 0;
+
+    limparTabelaPassos();
+
+    campoSerial.focus();
+}
+function limparTabelaPassos() {
+
+    const linhas = tabelaPassos.querySelectorAll("tr");
+
+    linhas.forEach(function (linha) {
+
+        const colunas = linha.querySelectorAll("td");
+
+        // Mantém a coluna do número do passo
+        colunas[1].textContent = "";
+        colunas[2].textContent = "";
+        colunas[3].textContent = "";
+
+        // Remove também o destaque azul
+        linha.classList.remove("passo-ativo");
+    });
 }
 
 });
